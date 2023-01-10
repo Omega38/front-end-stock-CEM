@@ -24,8 +24,12 @@
                                                 <td>{{departement.code_dep}}</td>
                                                 <td>{{departement.emplacement_dep}}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-outline-secondary" @click="getModifDepartement(departement)">Modifier</button> &nbsp;
-                                                    <button type="button" class="btn btn-outline-danger" @click="deleteDepartement(departement.id_dep)">Supprimer</button>
+                                                    <button type="button" class="btn btn-outline-secondary" @click="getModifDepartement(departement)" title="Modifier">
+                                                        <font-awesome-icon icon="fa-solid fa-upload"/>
+                                                    </button> &nbsp;
+                                                    <button type="button" class="btn btn-outline-danger" @click="deleteDepartement(departement.id_dep)" title="Supprimer">
+                                                        <font-awesome-icon icon="fa-solid fa-delete-left"/>
+                                                    </button>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -41,13 +45,17 @@
                     <input type="text" class="form-control" id="nom_dep" v-model="nom_dep" placeholder="Entrer nom"><br>
                     <input type="number" class="form-control" id="code_dep" v-model="code_dep" placeholder="Entrer code"><br>
                     <input type="text" class="form-control" id="emplacement_dep" v-model="emplacement_dep" placeholder="Entrer emplacement"><br>
-                    <button type="submit" class="btn btn-success" @click="ajoutDepartement">Ajouter</button>
+                    <button type="submit" class="btn btn-success" @click="ajoutDepartement" title="Ajouter">
+                        <font-awesome-icon icon="fa-solid fa-add"/>
+                    </button>
                     </div><br>
                     <div>
                         <input type="text" class="form-control" id="nom_dep" v-model="departement.nom_dep" placeholder="Entrer nom"><br>
                         <input type="number" class="form-control" id="code_dep" v-model="departement.code_dep" placeholder="Entrer code"><br>
                         <input type="text" class="form-control" id="emplacement_dep" v-model="departement.emplacement_dep" placeholder="Entrer emplacement"><br>
-                        <button type="submit" class="btn btn-success" @click="modifDepartement">Modifier</button>
+                        <button type="submit" class="btn btn-success" @click="modifDepartement" title="Modifier">
+                            <font-awesome-icon icon="fa-solid fa-upload"/>
+                        </button>
                     </div>
                 </form> 
             </b-col>

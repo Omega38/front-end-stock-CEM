@@ -6,7 +6,9 @@
             <div>
                 <input type="date" name="" id="" v-model="date_debut">&nbsp;
                 <input type="date" name="" id="" v-model="date_fin">&nbsp;
-                <input type="submit" value="recherche" @click="getStockByDate()">&nbsp;
+                <button type="button" class="btn btn-outline-secondary" @click="getStockByDate()" title="Recherche">
+                    <font-awesome-icon icon="fa-solid fa-search"/>
+                </button> &nbsp;
                 <button type="button" class="btn btn-outline-success" @click="load()">Actualiser</button>
             </div>
           </div>

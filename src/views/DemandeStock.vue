@@ -3,7 +3,7 @@
         <b-row>
                         <b-col sm="6">
                             <div>
-                                    Saisie par : {{utilisateur.nom_user}}
+                                    PERSONNEL
                             </div>
                                 <select class="form-control" v-model="utilisateur.nom_user">
                                     <option v-for="utilisateur in utilisateur" :key="utilisateur.id_user">
@@ -11,7 +11,7 @@
                                     </option>
                                 </select><br>
                                 <div>
-                                    Departement : {{dep_demande.departement_demande}}
+                                    DEPARTEMENT
                                 </div>
                                 <select class="form-control" v-model="dep_demande.departement_demande">
                                     <option v-for="dep_demande in dep_demande" :key="dep_demande.id_dep">
@@ -19,7 +19,7 @@
                                     </option>
                                 </select><br>
                                 <div>
-                                    Designation : {{designation.libelle_designation}}
+                                    DESIGNATION
                                 </div>
                                 <select class="form-control" v-model="designation.libelle_designation">
                                     <option v-for="designation in designation" :key="designation.id_designation">
@@ -29,29 +29,25 @@
                                 <input type="number" class="form-control" id="quantite" v-model="quantite" placeholder="Entrer quantité"><br>
                                 <textarea class="form-control" name="" id="description" cols="12" rows="2" v-model="description" placeholder="Entrer description"></textarea><br>
                                 <input type="date" class="form-control" id="date" v-model="date" placeholder="Entrer la date"><br>
-                            <button type="submit" class="btn btn-success" @click="ajoutDemande">Ajouter</button>
+                            <button type="submit" class="btn btn-success" @click="ajoutDemande" title="Ajouter">
+                                <font-awesome-icon icon="fa-solid fa-add"/>
+                            </button>
                         </b-col>
                         <b-col sm="6">
                             <div>
-                                <div>
-                                    Selectionner utilisateur: {{demande.nom_user}}
-                                </div>
+                               <br>
                                 <select class="form-control" v-model="demande.nom_user">
                                     <option v-for="utilisateur in utilisateur" :key="utilisateur.id_user">
                                         {{utilisateur.nom_user}}
                                     </option>
                                 </select><br>
-                                <div>
-                                    Selectionner departement: {{demande.departement_demande}}
-                                </div>
+                                
                                 <select class="form-control" v-model="demande.departement_demande">
                                     <option v-for="dep_demande in dep_demande" :key="dep_demande.id_dep">
                                         {{dep_demande.departement_demande}}
                                     </option>
                                 </select><br>
-                                <div>
-                                    Selectionner: {{demande.libelle_designation}}
-                                </div>
+            
                                 <select class="form-control" v-model="demande.libelle_designation">
                                     <option v-for="designation in designation" :key="designation.id_designation">
                                         {{designation.libelle_designation}}
@@ -60,7 +56,9 @@
                                 <input type="number" class="form-control" id="quantite" v-model="demande.quantite_demande" placeholder="Entrer quantité"><br>
                                 <textarea class="form-control" name="" id="description" cols="12" rows="2" v-model="demande.description_demande" placeholder="Entrer description"></textarea><br>
                                 <input type="date" class="form-control" id="date" v-model="demande.date_demande" placeholder="Entrer la date"><br>
-                                <button type="submit" class="btn btn-success" @click="modifDemande">Modifier</button>
+                        <br><br><button type="submit" class="btn btn-success" @click="modifDemande" title="Modifier">
+                                    <font-awesome-icon icon="fa-solid fa-upload"/>
+                                </button>
                             </div>
                         </b-col>     
         </b-row><br>
@@ -71,7 +69,9 @@
                     <div class="text-center">
                         <input type="date" name="" id="" v-model="date_debut">&nbsp;
                         <input type="date" name="" id="" v-model="date_fin">&nbsp;
-                        <input type="submit" value="recherche" @click="getDemandeByDate()">&nbsp;
+                        <button type="button" class="btn btn-outline-secondary" @click="getDemandeByDate()" title="Recherche">
+                            <font-awesome-icon icon="fa-solid fa-search"/>
+                        </button> &nbsp;
                         <button type="button" class="btn btn-outline-secondary" @click="load()">Actualiser</button>
                     </div>
                            
@@ -98,11 +98,17 @@
                                             <td>{{demande.libelle_designation}}</td>
                                             <td>{{demande.quantite_demande}}</td>
                                             <td>{{demande.description_demande}}</td>
-                                            <td>{{demande.date_demande}}</td>
+                                            <td>{{getDate(demande.date_demande)}}</td>
                                             <td>
-                                                <button type="button" class="btn btn-outline-secondary" @click="getModifDemande(demande)">Modifier</button> &nbsp;
-                                                <button type="button" class="btn btn-outline-danger" @click="deleteDemande(demande.id_demande)">Supprimer</button>
-                                                <button type="button" class="btn btn-outline-success" @click="ajoutConsoDep(demande)">Valider</button>
+                                                <button type="button" class="btn btn-outline-secondary" @click="getModifDemande(demande)" title="Modifier">
+                                                    <font-awesome-icon icon="fa-solid fa-upload"/>
+                                                </button> &nbsp;
+                                                <button type="button" class="btn btn-outline-danger" @click="deleteDemande(demande.id_demande)" title="Supprimer">
+                                                    <font-awesome-icon icon="fa-solid fa-delete-left"/>
+                                                </button>
+                                                <button type="button" class="btn btn-outline-success" @click="ajoutConsoDep(demande)" title="Valider">
+                                                    <font-awesome-icon icon="fa-solid fa-file-contract"/> 
+                                                </button>   
                                             </td>
                                         </tr>
                                     </tbody>

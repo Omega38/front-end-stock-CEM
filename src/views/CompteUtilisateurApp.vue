@@ -26,8 +26,12 @@
                                                 <td>{{compte_user.mdp_user}}</td>
                                                 <td>{{compte_user.nom_role}}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-outline-secondary" @click="getModifCompteUser(compte_user)">Modifier</button> &nbsp;
-                                                    <button type="button" class="btn btn-outline-danger" @click="deleteCompteUser(compte_user.num_compte)">Supprimer</button>
+                                                    <button type="button" class="btn btn-outline-secondary" @click="getModifCompteUser(compte_user)" title="Modifier">
+                                                        <font-awesome-icon icon="fa-solid fa-upload"/>
+                                                    </button> &nbsp;
+                                                    <button type="button" class="btn btn-outline-danger" @click="deleteCompteUser(compte_user.num_compte)" title="Supprimer">
+                                                        <font-awesome-icon icon="fa-solid fa-delete-left"/>
+                                                    </button>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -40,7 +44,7 @@
                 <form>
                     <div class="form-group">
                         <div>
-                            Role: {{roles.nom_role}}
+                            ROLE
                         </div>
                             <select class="form-control" v-model="roles.nom_role">
                                 <option v-for="roles in roles" :key="roles.id_role">
@@ -51,12 +55,9 @@
 
                     <input type="text" class="form-control" id="nom_utilisateur" v-model="username" placeholder="Entrer le nom utilisateur"><br>
                     <input type="text" class="form-control" id="mot_de_passe_utilisateur" v-model="mdp_user" placeholder="Entrer le mot de passe utilisateur"><br>
-                    <button type="submit" class="btn btn-success" @click="ajoutCompteUser">Ajouter</button>
+                    <button type="submit" class="btn btn-success" @click="ajoutCompteUser"><font-awesome-icon icon="fa-solid fa-add"/></button>
                     </div><br>
                     <div>
-                        <div>
-                            Selectionner: {{compte_user.nom_role}}
-                        </div>
                             <select class="form-control" v-model="compte_user.nom_role">
                                 <option v-for="roles in roles" :key="roles.id_role">
                                     {{roles.nom_role}}
@@ -66,7 +67,7 @@
 
                         <input type="text" class="form-control" id="username" v-model="compte_user.username"><br>
                         <input type="text" class="form-control" id="mdp_user" v-model="compte_user.mdp_user"><br>
-                        <button type="submit" class="btn btn-success" @click="modifCompteUser">Modifier</button>
+                        <button type="submit" class="btn btn-success" @click="modifCompteUser"><font-awesome-icon icon="fa-solid fa-upload"/></button>
                     </div>
                 </form>        
             </b-col>

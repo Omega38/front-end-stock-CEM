@@ -6,7 +6,9 @@
             <div class="text-center">
                 <input type="date" name="" id="" v-model="date_debut">&nbsp;
                 <input type="date" name="" id="" v-model="date_fin">&nbsp;
-                <input type="submit" value="recherche" @click="getConsoTotByDate()">&nbsp;
+                <button type="button" class="btn btn-outline-secondary" @click="getConsoTotByDate()" title="Recherche">
+                    <font-awesome-icon icon="fa-solid fa-search"/>
+                </button> &nbsp;
                 <button type="button" class="btn btn-outline-secondary" @click="load()">Actualiser</button>
             </div>
           </div>

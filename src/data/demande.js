@@ -1,4 +1,5 @@
 import axios from "axios";
+import moment from "moment";
 export default {
   name: "app",
   data() {
@@ -17,6 +18,10 @@ export default {
     this.selectDesignation()
     },
   methods: {
+        getDate : function (date) {
+            return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
+        },
+
         async load() {
             try {
             const demande = await axios.get("http://localhost:3000/demande");
@@ -94,6 +99,8 @@ export default {
           },
 
           async ajoutConsoDep(demande) {
+            const d = new Date(demande.date_demande);
+            const mois = d.getMonth() + 1;
             try {
               const consodep = await axios.post(
                 "http://localhost:3000/consommation_departement",
@@ -104,6 +111,10 @@ export default {
                   quantite_conso_dep: demande.quantite_demande,
                   date_conso_dep: demande.date_demande,
                   description_conso_dep: demande.description_demande,
+
+                  quantite: demande.quantite_demande, 
+                  designation: demande.libelle_designation, 
+                  date: mois,
                 }
               );
               console.log(consodep)
@@ -112,7 +123,7 @@ export default {
               // const mois = d.getMonth() + 1;
 
               // const stock = await axios.put(
-              //   "http://localhost:3000/stock",
+              //   "http://localhost:3000/stock", + designation,
               //   {
               //     quantite: demande.quantite_demande, 
               //     designation: demande.libelle_designation, 

@@ -21,8 +21,12 @@
                                             <!-- <td>{{type_fourniture.id_type_fourniture}}</td> -->
                                             <td>{{type_fourniture.libelle_type_fourniture}}</td>
                                             <td>
-                                                <button type="button" class="btn btn-outline-secondary" @click="getModifFourniture(type_fourniture)">Modifier</button> &nbsp;
-                                                <button type="button" class="btn btn-outline-danger" @click="deleteFourniture(type_fourniture.id_type_fourniture)">Supprimer</button>
+                                                <button type="button" class="btn btn-outline-secondary" @click="getModifFourniture(type_fourniture)" title="Modifier">
+                                                    <font-awesome-icon icon="fa-solid fa-upload"/>
+                                                </button> &nbsp;
+                                                <button type="button" class="btn btn-outline-danger" @click="deleteFourniture(type_fourniture.id_type_fourniture)" title="Supprimer">
+                                                    <font-awesome-icon icon="fa-solid fa-delete-left"/>
+                                                </button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -36,12 +40,16 @@
                     <div class="form-group">
                     <br><br>
                     <input type="text" class="form-control" id="fourniture" v-model="fourniture" placeholder="Entrer le type fourniture"><br>
-                    <button type="submit" class="btn btn-success" @click="ajoutFourniture">Ajouter</button>
+                    <button type="submit" class="btn btn-success" @click="ajoutFourniture" title="Ajouter">
+                        <font-awesome-icon icon="fa-solid fa-add"/>
+                    </button>
                     </div><br>
                     <div>
                         <!-- <input type="text" class="form-control" id="fourniture" v-model="type_fourniture.id_type_fourniture"> -->
                         <input type="text" class="form-control" id="fourniture" v-model="type_fourniture.libelle_type_fourniture"><br>
-                        <button type="submit" class="btn btn-success" @click="modifFourniture">Modifier</button>
+                        <button type="submit" class="btn btn-success" @click="modifFourniture" title="Modifier">
+                            <font-awesome-icon icon="fa-solid fa-upload"/>
+                        </button>
                     </div>
                 </form>     
             </b-col>

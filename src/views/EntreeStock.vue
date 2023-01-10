@@ -3,7 +3,7 @@
             <b-row>
                 <b-col sm="6">
                     <div>
-                    Designation: {{designation.libelle_designation}}
+                    DESIGNATION
                     </div>
                             <select class="form-control" v-model="designation.libelle_designation">
                                 <option v-for="designation in designation" :key="designation.id_designation">
@@ -15,13 +15,13 @@
                     <input type="number" class="form-control" id="quantite" v-model="quantite" placeholder="Entrer la quantité"><br>
                     <input type="number" class="form-control" id="pu" v-model="pu" placeholder="Entrer le prix unitaire"><br>
                     <input type="date" class="form-control" id="date" v-model="date" placeholder="Entrer la date"><br>
-                    <button type="submit" class="btn btn-success" @click="ajoutEntreeStock">Ajouter</button>
+                    <button type="submit" class="btn btn-success" @click="ajoutEntreeStock" title="Ajouter">
+                        <font-awesome-icon icon="fa-solid fa-add"/>
+                    </button>
                 </b-col>
                 <b-col sm="6">
                     <div>
-                        <div>
-                            Designation: {{entree_stock.libelle_designation}}
-                        </div>
+                        <br>
                             <select class="form-control" v-model="entree_stock.libelle_designation">
                                 <option v-for="designation in designation" :key="designation.id_designation">
                                     {{designation.libelle_designation}}
@@ -32,7 +32,9 @@
                         <input type="number" class="form-control" id="quantite" v-model="entree_stock.quantite_entree"><br>
                         <input type="number" class="form-control" id="pu" v-model="entree_stock.pu_entree"><br>
                         <input type="date" class="form-control" id="date" v-model="entree_stock.date_entree"><br>
-                        <button type="submit" class="btn btn-success" @click="modifEntreeStock">Modifier</button>
+                        <button type="submit" class="btn btn-success" @click="modifEntreeStock" title="Modifier">
+                            <font-awesome-icon icon="fa-solid fa-upload"/>
+                        </button>
                     </div>
                 </b-col>
             </b-row><br>
@@ -43,7 +45,9 @@
                         <div class="text-center">
                             <input type="date" name="" id="" v-model="date_debut">&nbsp;
                             <input type="date" name="" id="" v-model="date_fin">&nbsp;
-                            <input type="submit" value="recherche" @click="getEntreeStockByDate()">&nbsp;
+                            <button type="button" class="btn btn-outline-secondary" @click="getEntreeStockByDate()" title="Recherche">
+                                <font-awesome-icon icon="fa-solid fa-search"/>
+                            </button> &nbsp;
                             <button type="button" class="btn btn-outline-success" @click="load()">Actualiser</button>
                         </div><br>
                         <div class="container">
@@ -77,11 +81,17 @@
                                                 <td>{{entree_stock.quantite_entree}}</td>
                                                 <td>{{entree_stock.pu_entree}}</td>
                                                 <td>{{entree_stock.montant_entree}}</td>
-                                                <td>{{entree_stock.date_entree}}</td>
+                                                <td>{{getDate(entree_stock.date_entree)}}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-outline-secondary" @click="getModifEntreeStock(entree_stock)">Modifier</button> &nbsp;
-                                                    <button type="button" class="btn btn-outline-danger" @click="deleteEntreeStock(entree_stock.id_entree)">Supprimer</button>&nbsp;
-                                                    <button type="button" class="btn btn-outline-success" @click="ajoutStock(entree_stock)">Stocker</button>
+                                                    <button type="button" class="btn btn-outline-secondary" @click="getModifEntreeStock(entree_stock)" title="Modifier">
+                                                        <font-awesome-icon icon="fa-solid fa-upload"/>
+                                                    </button> &nbsp;
+                                                    <button type="button" class="btn btn-outline-danger" @click="deleteEntreeStock(entree_stock.id_entree)" title="Supprimer">
+                                                        <font-awesome-icon icon="fa-solid fa-delete-left"/>
+                                                    </button>&nbsp;
+                                                    <button type="button" class="btn btn-outline-success" @click="ajoutStock(entree_stock)" title="Stocker">
+                                                        <font-awesome-icon icon="fa-solid fa-database"/>
+                                                    </button>
                                                 </td>
                                             </tr>
                                         </tbody>

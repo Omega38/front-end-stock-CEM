@@ -22,8 +22,12 @@
                                             <td>{{designation.libelle_type_fourniture}}</td>
                                             <td>{{designation.libelle_designation}}</td>
                                             <td>
-                                                <button type="button" class="btn btn-outline-secondary" @click="getModifDesignation(designation)">Modifier</button> &nbsp;
-                                                <button type="button" class="btn btn-outline-danger" @click="deleteDesignation(designation.id_designation)">Supprimer</button>
+                                                <button type="button" class="btn btn-outline-secondary" @click="getModifDesignation(designation)" title="Modifier">
+                                                    <font-awesome-icon icon="fa-solid fa-upload"/>
+                                                </button> &nbsp;
+                                                <button type="button" class="btn btn-outline-danger" @click="deleteDesignation(designation.id_designation)" title="Supprimer">
+                                                    <font-awesome-icon icon="fa-solid fa-delete-left"/>
+                                                </button>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -37,7 +41,7 @@
                     <div class="form-group">
                         <br>
                         <div>
-                            Type de fourniture
+                            TYPE FOURNITURE
                         </div>
                             <select class="form-control" v-model="type_fourniture.libelle_type_fourniture">
                                 <option v-for="type_fourniture in type_fourniture" :key="type_fourniture.id_type_fourniture">
@@ -47,7 +51,9 @@
                         <br>
 
                     <input type="text" class="form-control" id="designation" v-model="article" placeholder="Entrer le designation"><br>
-                    <button type="submit" class="btn btn-success" @click="ajoutDesignation">Ajouter</button>
+                    <button type="submit" class="btn btn-success" @click="ajoutDesignation" title="Ajouter">
+                        <font-awesome-icon icon="fa-solid fa-add"/>
+                    </button>
                     </div><br>
                     <div>
                         <select class="form-control" v-model="designation.libelle_type_fourniture">
@@ -58,7 +64,9 @@
                             <br>
 
                         <input type="text" class="form-control" id="designation" v-model="designation.libelle_designation"><br>
-                        <button type="submit" class="btn btn-success" @click="modifDesignation">Modifier</button>
+                        <button type="submit" class="btn btn-success" @click="modifDesignation" title="Modifier">
+                            <font-awesome-icon icon="fa-solid fa-upload"/>
+                        </button>
                     </div>
                 </form>        
             </b-col>

@@ -39,7 +39,7 @@
               </template>
               <b-dropdown-item to="utilisateur">PROFILE</b-dropdown-item>
               <b-dropdown-item to="compteuser">COMPTE</b-dropdown-item>
-              <b-dropdown-item href="#">Deconnexion</b-dropdown-item>
+              <b-dropdown-item to="login">Deconnexion</b-dropdown-item>
             </b-nav-item-dropdown>
           </b-navbar-nav>
         </b-collapse>

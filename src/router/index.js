@@ -1,4 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
+
+import AuthLogin from '@/views/AuthLogin'
+
 import AccueilBienvenu from '@/views/AccueilBienvenu'
 import DemandeStock from '@/views/DemandeStock'
 import TypeFourniture from '@/views/TypeFourniture'
@@ -58,6 +61,10 @@ const router = createRouter({
         {
             path: '/compteuser',
             component: CompteUtilisateurApp
+        },
+        {
+            path: '/login',
+            component: AuthLogin
         },
     ]
 })

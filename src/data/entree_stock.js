@@ -1,4 +1,5 @@
 import axios from "axios";
+import moment from "moment";
 export default {
   name: "app",
   data() {
@@ -14,6 +15,10 @@ export default {
     this.selectDesignation()
     },
   methods: {
+        getDate : function (date) {
+            return moment(date, 'YYYY-MM-DD').format('DD/MM/YYYY');
+        },
+        
         async load() {
             try {
             const entree_stock = await axios.get("http://localhost:3000/entree_stock");
@@ -70,7 +75,7 @@ export default {
                   date_entree: this.date
                 }
               );
-              console.log(entree_stock)
+              console.log(entree_stock);
               this.load()
             } catch(e) {
               console.log(e);

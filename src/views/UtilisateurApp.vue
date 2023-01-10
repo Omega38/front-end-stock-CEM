@@ -25,8 +25,12 @@
                                                 <td>{{utilisateur.code_user}}</td>
                                                 <td>{{utilisateur.departement}}</td>
                                                 <td>
-                                                    <button type="button" class="btn btn-outline-secondary" @click="getModifUtilisateur(utilisateur)">Modifier</button> &nbsp;
-                                                    <button type="button" class="btn btn-outline-danger" @click="deleteUtilisateur(utilisateur.id_user)">Supprimer</button>
+                                                    <button type="button" class="btn btn-outline-secondary" @click="getModifUtilisateur(utilisateur)" title="Modifier">
+                                                        <font-awesome-icon icon="fa-solid fa-upload"/>
+                                                    </button> &nbsp;
+                                                    <button type="button" class="btn btn-outline-danger" @click="deleteUtilisateur(utilisateur.id_user)" title="Supprimer">
+                                                        <font-awesome-icon icon="fa-solid fa-delete-left"/>
+                                                    </button>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -40,7 +44,7 @@
                     <div class="form-group">
                     <br>
                         <div>
-                            Numero de compte: {{compte_user.num_compte}}
+                            NUM COMPTE
                         </div>
                             <select class="form-control" v-model="compte_user.num_compte">
                                 <option v-for="compte_user in compte_user" :key="compte_user.id_compte_user">
@@ -52,13 +56,17 @@
                     <input type="text" class="form-control" id="nom_user" v-model="nom_user" placeholder="Entrer nom"><br>
                     <input type="number" class="form-control" id="code_user" v-model="code_user" placeholder="Entrer code"><br>
                     <input type="text" class="form-control" id="departement" v-model="departement" placeholder="Entrer departement"><br>
-                    <button type="submit" class="btn btn-success" @click="ajoutUtilisateur">Ajouter</button>
+                    <button type="submit" class="btn btn-success" @click="ajoutUtilisateur" title="Ajouter">
+                        <font-awesome-icon icon="fa-solid fa-add"/>
+                    </button>
                     </div><br>
                     <div>
                         <input type="text" class="form-control" id="nom_user" v-model="utilisateur.nom_user"><br>
                         <input type="text" class="form-control" id="code_user" v-model="utilisateur.code_user"><br>
                         <input type="text" class="form-control" id="departement" v-model="utilisateur.departement"><br>
-                        <button type="submit" class="btn btn-success" @click="modifUtilisateur">Modifier</button>
+                        <button type="submit" class="btn btn-success" @click="modifUtilisateur" title="Modifier">
+                            <font-awesome-icon icon="fa-solid fa-upload"/>
+                        </button>
                     </div>
                 </form>        
             </b-col>
